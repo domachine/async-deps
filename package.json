@@ -1,0 +1,33 @@
+{
+  "name": "async-deps",
+  "version": "1.0.0",
+  "description": "Load and cache asynchronous dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "keywords": [
+    "async",
+    "dependencies"
+  ],
+  "author": "Dominik Burgdörfer <db@domachine.de>",
+  "license": "ISC",
+  "devDependencies": {
+    "sinon": "^1.17.3",
+    "tap": "^5.6.0"
+  },
+  "dependencies": {
+    "from": "^0.1.3",
+    "lodash.zip": "^4.0.0",
+    "map-stream": "0.0.6",
+    "stream-reduce": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domachine/async-deps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/domachine/async-deps/issues"
+  },
+  "homepage": "https://github.com/domachine/async-deps#readme"
+}
