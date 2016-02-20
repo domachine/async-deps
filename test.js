@@ -16,7 +16,7 @@ tap.test('creates a function for all allowed args', (t) => {
 });
 
 tap.test('calls the handler once for two equal calls', (t) => {
-  t.plan(14);
+  t.plan(10);
   const value = { _value: 1 };
   const handler = stub().callsArgWith(2, null, value);
   const props = { query: { id: '2' } };
@@ -195,6 +195,32 @@ tap.test('propagates error of input', (t) => {
 
   function next(err) {
     t.equal(err, error);
+    t.end();
+  }
+});
+
+tap.test('takes generic arguments', (t) => {
+  const i = 3;
+  const args = [{ _props: 1 }, { _state: 1 }];
+  const inputStub = stub().returns(i);
+  const output = 42;
+  const outputStub = stub().callsArgWith(2, null, 42);
+  const loader = createLoader(
+    inputStub,
+    inputStub,
+    outputStub
+  );
+
+  loader.apply(undefined, args.concat([test]));
+
+  function test(err, v) {
+    t.equal(v, output);
+    t.ok(inputStub.calledTwice);
+    t.deepEqual(inputStub.args[0], args);
+    t.deepEqual(inputStub.args[1], args);
+    t.ok(outputStub.calledOnce);
+    t.deepEqual(outputStub.args[0].slice(0, 2), [i, i]);
+    t.equal(typeof outputStub.args[0][2], 'function');
     t.end();
   }
 });
