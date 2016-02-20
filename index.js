@@ -2,9 +2,6 @@
 
 module.exports = createLoader;
 
-const concat = () =>
-  reduce((result, value) => result.concat([value]), []);
-
 const runInput = (i, props, next) =>
   !i[0].async
     ? next(null, {
