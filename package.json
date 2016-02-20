@@ -6,6 +6,11 @@
   "scripts": {
     "test": "tap test.js"
   },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "keywords": [
     "async",
     "dependencies"
