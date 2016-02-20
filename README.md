@@ -44,6 +44,34 @@ function loadWithDifferentProps() {
 }
 ```
 
+### Combine loaders
+
+You can also combine loaders.
+
+```js
+...
+
+const customerLoader = createLoader(
+  (props) => props.customer,
+  (id, next) => {
+    console.log('Loading ...');
+    fetchCustomer(id, (err, customer) => {
+      if (err) return next(err);
+      next(null, { customer });
+    });
+  }
+);
+
+const postsLoader = createLoader(
+  customerLoader,
+  (customer, next) => {
+    fetchPosts(customer.posts, next);
+  }
+);
+
+...
+```
+
 ## Tests
 
     $ npm test
