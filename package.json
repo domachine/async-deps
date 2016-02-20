@@ -1,6 +1,6 @@
 {
   "name": "async-deps",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Load and cache asynchronous dependencies.",
   "main": "index.js",
   "scripts": {
