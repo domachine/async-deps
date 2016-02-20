@@ -1,5 +1,8 @@
 # async-props
 
+[![Build Status](https://travis-ci.org/domachine/async-deps.svg?branch=master)](https://travis-ci.org/domachine/async-deps)
+[![Coverage Status](https://coveralls.io/repos/github/domachine/async-deps/badge.svg?branch=master)](https://coveralls.io/github/domachine/async-deps?branch=master)
+
 A javascript module to load and cache asynchronous dependencies.
 
 ## Usage
